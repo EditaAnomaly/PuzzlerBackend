@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ClientServiceAPI",
+    "\\ClientServiceAPI\\ClientServiceAPI",
+    "\\ClientServiceAPI\\ClientServiceAPI\\Controllers",
+    "\\ClientServiceAPI\\ClientServiceAPI\\Models"
+  ],
+  "SelectedNode": "\\ClientServiceAPI\\ClientServiceAPI\\Controllers\\ClientController.cs",
+  "PreviewInSolutionExplorer": false
+}
