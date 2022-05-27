@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  rentingservice:
+    image: ${DOCKER_REGISTRY-}rentingservice
+    container_name: "RentingService"
+    build:
+      context: .
+      dockerfile: Dockerfile
+  mssql:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: "RentingDB"
+    ports:
+      - 1435:1433
+    environment:
+      SA_PASSWORD: "!k9uXi3ha"
+      ACCEPT_EULA: "Y"

@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  productsservice:
+    image: ${DOCKER_REGISTRY-}productsservice
+    container_name: "ProductsService"
+    build:
+      context: .
+      dockerfile: Dockerfile
+  mssql:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: "ProductDB"
+    ports:
+        - 1434:1433
+    environment:
+        SA_PASSWORD: "5P83Czns!"
+        ACCEPT_EULA: "Y"
