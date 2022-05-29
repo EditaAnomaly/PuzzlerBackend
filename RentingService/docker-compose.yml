@@ -7,11 +7,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - mssql
   mssql:
     image: "mcr.microsoft.com/mssql/server:2019-latest"
+    user: root
     container_name: "RentingDB"
-    ports:
-      - 1435:1433
+    volumes:
+      - renting-db-mssql:/var/opt/mssql/data
     environment:
       SA_PASSWORD: "!k9uXi3ha"
       ACCEPT_EULA: "Y"
+    ports:
+      - 1435:1433
+volumes:
+   renting-db-mssql: {}

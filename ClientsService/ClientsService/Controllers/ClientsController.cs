@@ -11,7 +11,8 @@ using RabbitMQ.Client;
 using System.Text;
 
 namespace ClientsService.Controllers;   
-
+[Route("[controller]")]
+[ApiController]
 public class ClientsController : Controller
 {
     private readonly ClientsServiceContext _context;

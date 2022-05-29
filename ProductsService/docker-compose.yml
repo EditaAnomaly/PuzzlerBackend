@@ -7,11 +7,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - mssql
   mssql:
     image: "mcr.microsoft.com/mssql/server:2019-latest"
+    user: root
     container_name: "ProductDB"
-    ports:
-        - 1434:1433
+    volumes:
+      - product-db-mssql:/var/opt/mssql/data
     environment:
         SA_PASSWORD: "5P83Czns!"
         ACCEPT_EULA: "Y"
+    ports:
+      - 1434:1433
+volumes:
+   client-db-mssql: {}

@@ -4,14 +4,23 @@ services:
   clientsservice:
     image: ${DOCKER_REGISTRY-}clientsservice
     container_name: "ClientsService"
+    ports:
+      - 5031:80
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on:
+      - mssql
   mssql:
     image: "mcr.microsoft.com/mssql/server:2019-latest"
+    user: root
     container_name: "ClientDB"
-    ports:
-      - 1433:1433
+    volumes:
+      - client-db-mssql:/var/opt/mssql/data
     environment:
       MSSQL_SA_PASSWORD: "66n@DubzF"
       ACCEPT_EULA: "Y"
+    ports:
+      - 1433:1433
+volumes:
+  client-db-mssql: {}

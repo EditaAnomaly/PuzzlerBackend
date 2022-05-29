@@ -262,3 +262,4 @@ C:\Users\rymga\Desktop\Semester 6\IP\gitrepo\PuzzlerBackend\RentingService\Renti
 C:\Users\rymga\Desktop\Semester 6\IP\gitrepo\PuzzlerBackend\RentingService\RentingService\obj\Debug\net6.0\RentingService.genruntimeconfig.cache
 C:\Users\rymga\Desktop\Semester 6\IP\gitrepo\PuzzlerBackend\RentingService\RentingService\obj\Debug\net6.0\ref\RentingService.dll
 C:\Users\rymga\Desktop\Semester 6\IP\gitrepo\PuzzlerBackend\RentingService\RentingService\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\Users\rymga\Desktop\Semester 6\IP\gitrepo\PuzzlerBackend\RentingService\RentingService\bin\Debug\net6.0\Dapper.dll
