@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: products-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productsservice
+  template:
+    metadata:
+      labels:
+        app: productsservice
+    spec:
+      containers:
+      - name: productsservice
+        image: eanomaly/productsservice:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

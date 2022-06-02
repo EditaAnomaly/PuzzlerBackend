@@ -4,8 +4,8 @@ services:
   clientsservice:
     image: ${DOCKER_REGISTRY-}clientsservice
     container_name: "ClientsService"
-    ports:
-      - 5031:80
+    #    ports:
+    #      - 5030:80
     build:
       context: .
       dockerfile: Dockerfile
