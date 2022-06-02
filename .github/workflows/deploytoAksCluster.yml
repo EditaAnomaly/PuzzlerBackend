@@ -1,0 +1,50 @@
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    
+    - uses: azure/docker-login@v1
+      with:
+        login-server: puzzlercontainerregistry.azurecr.io
+        username: ${{ secrets.acr_puzzlercontainerregistry_username }}
+        password: ${{ secrets.acr_puzzlercontainerregistry_password }}
+    
+    - name: Build and push image to ACR
+      id: build-image
+      run: |
+        docker build "$GITHUB_WORKSPACE/ClientsService/ClientsService" -f  "ClientsService/ClientsService/Dockerfile" -t puzzlercontainerregistry.azurecr.io/puzzlerbk8s:${{ github.sha }} --label dockerfile-path=ClientsService/ClientsService/Dockerfile
+        docker push puzzlercontainerregistry.azurecr.io/puzzlerbk8s:${{ github.sha }}
+    
+    - uses: azure/k8s-set-context@v1
+      with:
+         kubeconfig: ${{ secrets.aks_puzzlerbk8s_kubeConfig }}
+      id: login
+    
+    - name: Create namespace
+      run: |
+        namespacePresent=`kubectl get namespace | grep puzzler-b-k8s9832 | wc -l`
+        if [ $namespacePresent -eq 0 ]
+        then
+            echo `kubectl create namespace puzzler-b-k8s9832`
+        fi
+
+    - uses: azure/k8s-create-secret@v1
+      with:
+        namespace: puzzler-b-k8s9832
+        container-registry-url: puzzlercontainerregistry.azurecr.io
+        container-registry-username: ${{ secrets.acr_puzzlercontainerregistry_username }}
+        container-registry-password: ${{ secrets.acr_puzzlercontainerregistry_password }}
+        secret-name: puzzlerbk8sdockerauth
+       
+    - uses: azure/k8s-deploy@v1.2
+      with:
+        namespace: puzzler-b-k8s9832
+        manifests: |
+          manifests/deployment.yml
+          manifests/service.yml
+        images: |
+          puzzlercontainerregistry.azurecr.io/puzzlerbk8s:${{ github.sha }}
+        imagepullsecrets: |
+          puzzlerbk8sdockerauth
