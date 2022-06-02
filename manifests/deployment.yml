@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "puzzlerbk8s-6a80"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "puzzlerbk8s-6a80"
+  template:
+    metadata:
+      labels:
+        app: "puzzlerbk8s-6a80"
+    spec:
+      containers:
+        - name: "puzzlerbk8s-6a80"
+          image: "puzzlercontainerregistry.azurecr.io/puzzlerbk8s"
+          ports:
+          - containerPort: 80
