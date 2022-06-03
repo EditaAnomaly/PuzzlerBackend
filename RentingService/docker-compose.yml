@@ -4,6 +4,8 @@ services:
   rentingservice:
     image: ${DOCKER_REGISTRY-}rentingservice
     container_name: "RentingService"
+    ports:
+      - 5030:8080
     build:
       context: .
       dockerfile: Dockerfile
