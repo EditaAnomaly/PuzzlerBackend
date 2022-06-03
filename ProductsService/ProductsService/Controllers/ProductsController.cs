@@ -11,7 +11,8 @@ using RabbitMQ.Client;
 using System.Text;
 
 namespace ProductsService.Controllers;
-
+[Route("[controller]")]
+[ApiController]
 public class ProductsController : Controller
 {
     private readonly ProductsServiceContext _context;
