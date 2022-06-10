@@ -33,13 +33,6 @@ public class ClientsController : Controller
     [HttpGet("getclientbyid")]
     public async Task<ActionResult<Client>> Details(Guid id)
     {
-        var client = await _context.Client
-            .FirstOrDefaultAsync(m => m.Id == id);
-        if (client == null)
-        {
-            return NotFound();
-        }
-        return client;
     }
 
     // POST: createclient
