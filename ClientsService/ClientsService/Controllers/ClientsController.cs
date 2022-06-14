@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClientsService.Models;
-using ClientsService.Data;
-//using ClientsService.Services;
 using RabbitMQ.Client;
 using System.Text;
 
@@ -16,12 +13,8 @@ namespace ClientsService.Controllers;
 [ApiController]
 public class ClientsController : Controller
 {
-    private readonly ClientsServiceContext _context;
     private readonly IClientRepo _repo; 
-    //public ClientsController(ClientsServiceContext context)
-    //{
-    //    _context = context;
-    //}
+
 
     public ClientsController(IClientRepo repo)
     {
@@ -39,10 +32,6 @@ public class ClientsController : Controller
     [HttpGet("getclientbyid")]
     public async Task<ActionResult<Client>> Details(Guid id)
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
         var client = _repo.GetClientById(id);
         if (client == null)
         {
@@ -64,7 +53,7 @@ public class ClientsController : Controller
                 {
                     client.Id = Guid.NewGuid();
                     _repo.InsertClient(client);
-                    await _context.SaveChangesAsync();
+                    _repo.Save();
                     channel.QueueDeclare(queue: "client_details", durable: false, exclusive: false, autoDelete: false, arguments: null);
                     string message = client.Id.ToString() + "|" + client.Name.ToString() + "|" + client.Surname.ToString() + "|" + client.Deposit.ToString();
                     var body = Encoding.UTF8.GetBytes(message);
@@ -90,8 +79,8 @@ public class ClientsController : Controller
         {
             try
             {
-                _context.Update(client);
-                await _context.SaveChangesAsync();
+                _repo.UpdateClient(client);
+                _repo.Save();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -120,6 +109,9 @@ public class ClientsController : Controller
 
     private bool ClientExists(Guid id)
     {
-        return _context.Client.Any(e => e.Id == id);
+        if (_repo.GetClientById(id) !=null)
+            return true;
+        else
+            return false;
     }
 }
