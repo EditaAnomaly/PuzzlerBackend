@@ -1,0 +1,28 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+      working-directory: ClientsService/ClientsService
+    - name: Build
+      run: dotnet build  --no-restore
+      working-directory: ClientsService/ClientsService
+    - name: Test
+      working-directory: ClientsService/ClientServiceTests
+      run: dotnet test 
