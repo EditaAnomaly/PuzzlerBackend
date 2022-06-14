@@ -25,4 +25,4 @@ jobs:
       working-directory: ClientsService/ClientsService
     - name: Test
       working-directory: ClientsService/ClientServiceTests
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test 
