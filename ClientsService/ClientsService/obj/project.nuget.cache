@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JQDFhgdir9rj/QydT3DBFQnkFVz6E1EjENEMKjR8PI6gBU+TfbGy4ZdP7Rjqj1m/GtVQExGgLAZPoTgn+Qg/qQ==",
+  "dgSpecHash": "s3BcJnj5PIaqvVXn104vFysZoVCCvafgYBu/cB+CjUmyCb9oTDuqw0dCe7EI4zx7nvq8yo8lyEvnKx8wYIjTAg==",
   "success": true,
   "projectFilePath": "C:\\Users\\rymga\\Desktop\\Semester 6\\IP\\gitrepo\\PuzzlerBackend\\ClientsService\\ClientsService\\ClientsService.csproj",
   "expectedPackageFiles": [
@@ -83,7 +83,7 @@
     "C:\\Users\\rymga\\.nuget\\packages\\nuget.projectmodel\\5.11.0\\nuget.projectmodel.5.11.0.nupkg.sha512",
     "C:\\Users\\rymga\\.nuget\\packages\\nuget.protocol\\5.11.0\\nuget.protocol.5.11.0.nupkg.sha512",
     "C:\\Users\\rymga\\.nuget\\packages\\nuget.versioning\\5.11.0\\nuget.versioning.5.11.0.nupkg.sha512",
-    "C:\\Users\\rymga\\.nuget\\packages\\rabbitmq.client\\6.3.0\\rabbitmq.client.6.3.0.nupkg.sha512",
+    "C:\\Users\\rymga\\.nuget\\packages\\rabbitmq.client\\6.3.1\\rabbitmq.client.6.3.1.nupkg.sha512",
     "C:\\Users\\rymga\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\rymga\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\rymga\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

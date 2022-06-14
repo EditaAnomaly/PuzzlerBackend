@@ -15,7 +15,7 @@ public class ClientsServiceContext : DbContext
     }
 
     public DbSet<Client> Client { get; set; }
-
+        
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         var configuration = new ConfigurationBuilder()

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClientsService.Models;
 using ClientsService.Data;
+//using ClientsService.Services;
 using RabbitMQ.Client;
 using System.Text;
 
@@ -16,23 +17,38 @@ namespace ClientsService.Controllers;
 public class ClientsController : Controller
 {
     private readonly ClientsServiceContext _context;
+    private readonly IClientRepo _repo; 
+    //public ClientsController(ClientsServiceContext context)
+    //{
+    //    _context = context;
+    //}
 
-    public ClientsController(ClientsServiceContext context)
+    public ClientsController(IClientRepo repo)
     {
-        _context = context;
+        _repo = repo;
     }
 
     // GET: getclients
     [HttpGet("getclients")]
     public async Task<ActionResult<List<Client>>> Get()
     {
-        return Ok(await _context.Client.ToListAsync());
+        return Ok( _repo.GetClients());
     }
 
     // GET: getclientbyid
     [HttpGet("getclientbyid")]
     public async Task<ActionResult<Client>> Details(Guid id)
     {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        var client = _repo.GetClientById(id);
+        if (client == null)
+        {
+            return NotFound();
+        }
+        return client;
     }
 
     // POST: createclient
@@ -47,7 +63,7 @@ public class ClientsController : Controller
                 using (var channel = connection.CreateModel())
                 {
                     client.Id = Guid.NewGuid();
-                    _context.Add(client);
+                    _repo.InsertClient(client);
                     await _context.SaveChangesAsync();
                     channel.QueueDeclare(queue: "client_details", durable: false, exclusive: false, autoDelete: false, arguments: null);
                     string message = client.Id.ToString() + "|" + client.Name.ToString() + "|" + client.Surname.ToString() + "|" + client.Deposit.ToString();
@@ -97,10 +113,9 @@ public class ClientsController : Controller
     [HttpDelete("removeclientbyid")]
     public async Task<ActionResult<List<Client>>> Delete(Guid id)
     {
-        var client = await _context.Client.FindAsync(id);
-        _context.Client.Remove(client);
-        await _context.SaveChangesAsync();
-        return Ok(await _context.Client.ToListAsync());
+        _repo.DeleteClient(id);
+        _repo.Save();
+        return Ok( _repo.GetClients());
     }
 
     private bool ClientExists(Guid id)

@@ -971,6 +971,18 @@
           "lib/netstandard2.0/_._": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/6.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.5"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/6.0.5": {
         "type": "package",
         "dependencies": {
@@ -1882,7 +1894,7 @@
           "lib/netstandard2.0/NuGet.Versioning.dll": {}
         }
       },
-      "RabbitMQ.Client/6.3.0": {
+      "RabbitMQ.Client/6.3.1": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.4",
@@ -3542,7 +3554,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.5",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.15.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.5",
-          "RabbitMQ.Client": "6.3.0",
+          "RabbitMQ.Client": "6.3.1",
           "Swashbuckle.AspNetCore": "6.3.1"
         },
         "compile": {
@@ -4749,6 +4761,20 @@
         "lib/netstandard2.0/_._",
         "microsoft.entityframeworkcore.analyzers.6.0.5.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/6.0.5": {
+      "sha512": "EkN5W28f18acApSn7uxglOXI6h98s7ahlh0T4+0TJ+dahO1dqhO1VwNXcjkfwxq1Oz1FZdR9HD0fAWTQjWU1Kw==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/6.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.6.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/6.0.5": {
@@ -6725,10 +6751,10 @@
         "nuget.versioning.nuspec"
       ]
     },
-    "RabbitMQ.Client/6.3.0": {
-      "sha512": "aKDH8lyNIRkouDvJJD3xd6222z6qCK8+Lyb/lRQRO1QxN7hsTgPWtkezMmXmA7t1NsDLUwIWEJj8xYQtMt0tnQ==",
+    "RabbitMQ.Client/6.3.1": {
+      "sha512": "l70P6ySsVFS+QCwLldem92GCXYdwvg0X6c+Ty5Yv543eVYVcPtNUhNhmo8FsNVxQZuezMl3rfDJErIvqNJt1CA==",
       "type": "package",
-      "path": "rabbitmq.client/6.3.0",
+      "path": "rabbitmq.client/6.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -6737,7 +6763,7 @@
         "lib/net461/RabbitMQ.Client.xml",
         "lib/netstandard2.0/RabbitMQ.Client.dll",
         "lib/netstandard2.0/RabbitMQ.Client.xml",
-        "rabbitmq.client.6.3.0.nupkg.sha512",
+        "rabbitmq.client.6.3.1.nupkg.sha512",
         "rabbitmq.client.nuspec"
       ]
     },
@@ -10998,6 +11024,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "ClientsService >= 1.0.0",
+      "Microsoft.EntityFrameworkCore.InMemory >= 6.0.5",
       "Microsoft.NET.Test.Sdk >= 17.2.0",
       "Moq >= 4.18.1",
       "coverlet.collector >= 3.1.2",
@@ -11048,6 +11075,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[6.0.5, )"
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.2.0, )"

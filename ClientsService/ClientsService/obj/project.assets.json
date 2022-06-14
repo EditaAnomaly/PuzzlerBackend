@@ -1600,7 +1600,7 @@
           "lib/netstandard2.0/NuGet.Versioning.dll": {}
         }
       },
-      "RabbitMQ.Client/6.3.0": {
+      "RabbitMQ.Client/6.3.1": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.4",
@@ -5704,10 +5704,10 @@
         "nuget.versioning.nuspec"
       ]
     },
-    "RabbitMQ.Client/6.3.0": {
-      "sha512": "aKDH8lyNIRkouDvJJD3xd6222z6qCK8+Lyb/lRQRO1QxN7hsTgPWtkezMmXmA7t1NsDLUwIWEJj8xYQtMt0tnQ==",
+    "RabbitMQ.Client/6.3.1": {
+      "sha512": "l70P6ySsVFS+QCwLldem92GCXYdwvg0X6c+Ty5Yv543eVYVcPtNUhNhmo8FsNVxQZuezMl3rfDJErIvqNJt1CA==",
       "type": "package",
-      "path": "rabbitmq.client/6.3.0",
+      "path": "rabbitmq.client/6.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5716,7 +5716,7 @@
         "lib/net461/RabbitMQ.Client.xml",
         "lib/netstandard2.0/RabbitMQ.Client.dll",
         "lib/netstandard2.0/RabbitMQ.Client.xml",
-        "rabbitmq.client.6.3.0.nupkg.sha512",
+        "rabbitmq.client.6.3.1.nupkg.sha512",
         "rabbitmq.client.nuspec"
       ]
     },
@@ -9806,7 +9806,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.5",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.15.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.5",
-      "RabbitMQ.Client >= 6.3.0",
+      "RabbitMQ.Client >= 6.3.1",
       "Swashbuckle.AspNetCore >= 6.3.1"
     ]
   },
@@ -9869,7 +9869,7 @@
           },
           "RabbitMQ.Client": {
             "target": "Package",
-            "version": "[6.3.0, )"
+            "version": "[6.3.1, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

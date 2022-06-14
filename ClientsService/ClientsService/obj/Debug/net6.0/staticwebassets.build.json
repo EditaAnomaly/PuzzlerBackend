@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "evxJbpWF0rg11XL8YeeZCIJM2iCeUNqUuByMrRhDX1c=",
+  "Source": "ClientsService",
+  "BasePath": "_content/ClientsService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

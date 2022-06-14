@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientsService", "ClientsSe
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{3AB4D189-72B9-41A9-8009-71954AF97918}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientServiceTests", "ClientServiceTests\ClientServiceTests.csproj", "{7CCD3B3E-E272-4F09-A04F-AA7867EE660B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientServiceTests", "ClientServiceTests\ClientServiceTests.csproj", "{7CCD3B3E-E272-4F09-A04F-AA7867EE660B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{518F5288-8E38-4D98-923F-1173AE984781}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
